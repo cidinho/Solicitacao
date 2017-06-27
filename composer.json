@@ -1,0 +1,27 @@
+{
+    "name": "ablima/solicitacao",
+    "description": "Projeto Solicitação",
+    "type": "library",
+    "support": {
+        "issues": "https://github.com/cidinho/Solicitacao/issues",
+        "source": "https://github.com/cidinho/Solicitacao"
+    },
+    "require": {
+        "php": ">=7.1"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Alcides Bezerra",
+            "email": "alcidesbezerralima@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Modelo\\Solicitacao\\": [
+                "src/"
+            ]
+        }
+    },
+    "minimum-stability": "dev"
+}
