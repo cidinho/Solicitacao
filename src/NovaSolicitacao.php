@@ -1,22 +1,22 @@
-<?php declare(strict_types=1);
+<?php
 
-namespace Modelo;
+namespace Modelo\Solicitacao;
 
 class NovaSolicitacao extends Status {
 
-    public function aprovar(): \Modelo\Status {
+    public function aprovar(): \Modelo\Solicitacao\Status {
         
     }
 
-    public function recusar(): \Modelo\Status {
+    public function recusar(): \Modelo\Solicitacao\Status {
         
     }
 
-    public function retornar(): \Modelo\Status {
+    public function retornar(): \Modelo\Solicitacao\Status {
         
     }
 
-    public function solicitar(): \Modelo\Status {
+    public function solicitar(): \Modelo\Solicitacao\Status {
         
     }
 

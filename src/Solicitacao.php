@@ -1,12 +1,16 @@
-<?php declare(strict_types=1);
+<?php
 
-namespace Modelo;
+namespace Modelo\Solicitacao;
+
+use Modelo\Solicitacao\Exceptions\IllegalStateException;
+
 
 class Solicitacao {
+// <editor-fold defaultstate="collapsed" desc="Atributos">
 
     /**
      * Funcionário
-     * @var \Modelo\Funcionario
+     * @var Funcionario
      */
     private $funcionario;
 
@@ -36,21 +40,23 @@ class Solicitacao {
 
     /**
      * Status
-     * @var \Modelo\Status  
+     * @var Status  
      */
     private $status;
 
     /**
      *
-     * @var \Modelo\TipoDeSolicitacao 
+     * @var TipoDeSolicitacao 
      */
-    private $tipo;
-    
+    private $tipo; // </editor-fold>
+
+// <editor-fold defaultstate="collapsed" desc="Métodos Comuns">
+
     public function __construct() {
         $this->status = new NovaSolicitacao();
     }
 
-    public function getFuncionario(): \Modelo\Funcionario {
+    public function getFuncionario(): Funcionario {
         return $this->funcionario;
     }
 
@@ -62,56 +68,64 @@ class Solicitacao {
         return $this->termino;
     }
 
-    public function getMotivo() {
+    public function getMotivo(): string {
         return $this->motivo;
     }
 
-    public function getObservacao() {
+    public function getObservacao(): string {
         return $this->observacao;
     }
 
-    public function getStatus(): \Modelo\Status {
+    public function getStatus(): Status {
         return $this->status;
     }
 
-    public function getTipo(): \Modelo\TipoDeSolicitacao {
+    public function getTipo(): TipoDeSolicitacao {
         return $this->tipo;
     }
 
-    public function setFuncionario(\Modelo\Funcionario $funcionario) {
+    public function setFuncionario(Funcionario $funcionario): self {
         $this->funcionario = $funcionario;
         return $this;
     }
 
-    public function setInicio(\Datetime $inicio) {
+    public function setInicio(\Datetime $inicio): self {
         $this->inicio = $inicio;
         return $this;
     }
 
-    public function setTermino(\Datetime $termino) {
+    public function setTermino(\Datetime $termino): self {
         $this->termino = $termino;
         return $this;
     }
 
-    public function setMotivo($motivo) {
+    public function setMotivo($motivo): self {
         $this->motivo = $motivo;
         return $this;
     }
 
-    public function setObservacao($observacao) {
+    public function setObservacao($observacao): self {
         $this->observacao = $observacao;
         return $this;
     }
 
-    public function setStatus(\Modelo\Status $status) {
+    public function setStatus(Status $status): self {
         $this->status = $status;
         return $this;
     }
 
-    public function setTipo(\Modelo\TipoDeSolicitacao $tipo) {
+    public function setTipo(TipoDeSolicitacao $tipo): self {
         $this->tipo = $tipo;
         return $this;
     }
 
+// </editor-fold>
+    
+    /**
+     * @return Solicitacao
+     */
+    public function solicitar():self {
+        throw new IllegalStateException("Método Ainda não implementado.");
+    }
 
 }
