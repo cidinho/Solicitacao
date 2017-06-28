@@ -1,6 +1,7 @@
 {
     "name": "ablima/solicitacao",
     "description": "Projeto Solicitação",
+    "version": "0.5.1",
     "type": "library",
     "support": {
         "issues": "https://github.com/cidinho/Solicitacao/issues",
