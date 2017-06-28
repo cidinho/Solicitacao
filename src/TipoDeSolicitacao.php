@@ -2,7 +2,7 @@
 
 namespace Modelo\Solicitacao;
 
-final class TipoDeSolicitacao {
+final class TipoDeSolicitacao{
 
     public const SERVICO = "A Serviço";
     public const ATESTADO_MEDICO = "Atestado Médico";
@@ -35,12 +35,12 @@ final class TipoDeSolicitacao {
      * @return \self
      */
     public function setTipo(string $tipo): self {
-        $this->tipo = $tipo;
+        $this->tipo = self::_create($tipo);
         return $this;
     }
 
     public function __toString(): string {
-        return "" + $this->tipo;
+        return "" . $this->tipo;
     }
 
 }

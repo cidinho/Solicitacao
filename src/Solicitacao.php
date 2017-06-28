@@ -2,8 +2,6 @@
 
 namespace Modelo\Solicitacao;
 
-use Modelo\Solicitacao\Exceptions\IllegalStateException;
-
 
 class Solicitacao {
 // <editor-fold defaultstate="collapsed" desc="Atributos">
@@ -54,6 +52,7 @@ class Solicitacao {
 
     public function __construct() {
         $this->status = new NovaSolicitacao();
+        $this->tipo = new TipoDeSolicitacao("");
     }
 
     public function getFuncionario(): Funcionario {
@@ -125,7 +124,10 @@ class Solicitacao {
      * @return Solicitacao
      */
     public function solicitar():self {
-        throw new IllegalStateException("Método Ainda não implementado.");
+        $this->getStatus()
+                ->setSolicitacao($this)
+                ->solicitar();
+        return $this;
     }
 
 }
