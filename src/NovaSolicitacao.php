@@ -36,7 +36,7 @@ class NovaSolicitacao extends Status {
     }
 
     public function cancelar(): IStatus {
-        
+        throw new IllegalStateException("Não é possível cancelar um abono de faltas que ainda não foi solicitado.");
     }
 
 }

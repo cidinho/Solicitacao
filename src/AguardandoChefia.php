@@ -26,7 +26,8 @@ class AguardandoChefia extends Status {
     }
 
     public function recusar(): IStatus {
-        
+        $this->getSolicitacao()->setStatus(new Recusada());
+        return $this;
     }
 
     public function retornar(string $observacao): IStatus {
@@ -42,7 +43,8 @@ class AguardandoChefia extends Status {
     }
 
     public function cancelar(): IStatus {
-        
+        $this->getSolicitacao()->setStatus(new Cancelada());
+        return $this;
     }
 
 }
