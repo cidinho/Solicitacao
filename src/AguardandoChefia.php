@@ -8,6 +8,11 @@
 
 namespace Modelo\Solicitacao;
 
+use Modelo\Solicitacao\ {
+    Exceptions\IllegalStateException,
+    Interfaces\IStatus
+};
+
 /**
  * Description of AguardandoChefia
  *
@@ -15,24 +20,29 @@ namespace Modelo\Solicitacao;
  */
 class AguardandoChefia extends Status {
 
-    public function aprovar(): \Modelo\Solicitacao\Status {
+    public function aprovar(): IStatus {
+        $this->getSolicitacao()->setStatus(new AguardandoRh());
+        return $this;
+    }
+
+    public function recusar(): IStatus {
         
     }
 
-    public function recusar(): \Modelo\Solicitacao\Status {
-        
+    public function retornar(string $observacao): IStatus {
+        throw new IllegalStateException("Não é possível retornar a solicitação na chefia imediata, apenas no setor de Recursos Humanos");
     }
 
-    public function retornar(): \Modelo\Solicitacao\Status {
-        
-    }
-
-    public function solicitar(): \Modelo\Solicitacao\Status {
-        
+    public function solicitar(): IStatus {
+        throw new IllegalStateException("Não é possível solicitar um abono de faltas que já foi solicitado.");
     }
 
     public function __toString(): string {
         return "Aguardando Chefia";
+    }
+
+    public function cancelar(): IStatus {
+        
     }
 
 }

@@ -21,7 +21,8 @@
             "Modelo\\Solicitacao\\": [
                 "src/"
             ]
-        }
+        },
+        "files": ["src/RepositoryAtomic.php"]
     },
     "minimum-stability": "dev"
 }

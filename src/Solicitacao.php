@@ -2,8 +2,10 @@
 
 namespace Modelo\Solicitacao;
 
+use Modelo\Solicitacao\Interfaces\IStatus;
 
-class Solicitacao {
+
+class Solicitacao implements IStatus {
 // <editor-fold defaultstate="collapsed" desc="Atributos">
 
     /**
@@ -119,14 +121,39 @@ class Solicitacao {
     }
 
 // </editor-fold>
-    
-    /**
-     * @return Solicitacao
-     */
-    public function solicitar():self {
+
+    public function aprovar(): IStatus {
+        $this->getStatus()
+                ->setSolicitacao($this)
+                ->aprovar();
+        return $this;
+    }
+
+    public function recusar(): IStatus {
+            $this->getStatus()
+                ->setSolicitacao($this)
+                ->recusar();
+        return $this;    
+    }
+
+    public function retornar(string $observacao): IStatus {
+        $this->getStatus()
+                ->setSolicitacao($this)
+                ->retornar($observacao);
+        return $this;
+    }
+
+    public function solicitar(): IStatus {
         $this->getStatus()
                 ->setSolicitacao($this)
                 ->solicitar();
+        return $this;
+    }
+
+    public function cancelar(): IStatus {
+        $this->getStatus()
+                ->setSolicitacao($this)
+                ->cancelar();
         return $this;
     }
 

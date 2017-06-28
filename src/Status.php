@@ -2,31 +2,33 @@
 
 namespace Modelo\Solicitacao;
 
-abstract class Status {
+use Modelo\Solicitacao\Interfaces\IStatus;
+
+abstract class Status implements IStatus {
 
     /**
      * Solicitação
      * 
-     * @var \Modelo\Solicitacao\Solicitacao 
+     * @var Solicitacao 
      */
     protected $solicitacao;
 
     /**
      * Retorna Solicitação
      * 
-     * @return \Modelo\Solicitacao\Solicitacao
+     * @return Solicitacao
      */
-    public function getSolicitacao(): \Modelo\Solicitacao\Solicitacao {
+    public function getSolicitacao(): Solicitacao {
         return $this->solicitacao;
     }
 
     /**
      * Configura a Solicitação
      * 
-     * @param \Modelo\Solicitacao\Solicitacao $solicitacao
+     * @param Solicitacao $solicitacao
      * @return \self
      */
-    public function setSolicitacao(\Modelo\Solicitacao\Solicitacao $solicitacao): self {
+    public function setSolicitacao(Solicitacao $solicitacao): self {
         $this->solicitacao = $solicitacao;
         return $this;
     }
@@ -35,25 +37,26 @@ abstract class Status {
      * Solicita a mudança de status
      * @return self Próprio Objeto para Encadeamento
      */
-    public abstract function solicitar(): self;
+    public abstract function solicitar(): IStatus;
 
     /**
      * Aprova a mudança de status
      * @return self Próprio Objeto para Encadeamento
      */
-    public abstract function aprovar(): self;
+    public abstract function aprovar(): IStatus;
 
     /**
      * Recusa a mudança de status
      * @return self Próprio Objeto para Encadeamento
      */
-    public abstract function recusar(): self;
+    public abstract function recusar(): IStatus;
 
     /**
      * Retorna a mudança de status
+     * @param string $observacao Motivo do retorno da Solicitação
      * @return self Próprio Objeto para Encadeamento
      */
-    public abstract function retornar(): self;
+    public abstract function retornar(string $observacao): IStatus;
 
     /**
      * Retona o texto referente ao status

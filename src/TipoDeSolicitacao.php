@@ -42,5 +42,10 @@ final class TipoDeSolicitacao{
     public function __toString(): string {
         return "" . $this->tipo;
     }
+    
+    public static final function save(){
+        echo "teste";
+    }
 
 }
+
