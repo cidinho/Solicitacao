@@ -126,7 +126,7 @@ class Solicitacao implements IStatus {
         $this->getStatus()
                 ->setSolicitacao($this)
                 ->aprovar();
-        save($this);
+//        save($this);
         return $this;
     }
 
@@ -134,7 +134,7 @@ class Solicitacao implements IStatus {
         $this->getStatus()
                 ->setSolicitacao($this)
                 ->recusar();
-        save($this);
+//        save($this);
         return $this;
     }
 
@@ -142,7 +142,7 @@ class Solicitacao implements IStatus {
         $this->getStatus()
                 ->setSolicitacao($this)
                 ->retornar($observacao);
-        save($this);
+//        save($this);
         return $this;
     }
 
@@ -150,7 +150,7 @@ class Solicitacao implements IStatus {
         $this->getStatus()
                 ->setSolicitacao($this)
                 ->solicitar();
-        save($this);
+//        save($this);
         return $this;
     }
 
@@ -158,7 +158,7 @@ class Solicitacao implements IStatus {
         $this->getStatus()
                 ->setSolicitacao($this)
                 ->cancelar();
-        save($this);
+//        save($this);
         return $this;
     }
 
