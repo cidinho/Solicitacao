@@ -1,7 +1,7 @@
 {
     "name": "ablima/solicitacao",
     "description": "Projeto Solicitação",
-    "version": "v0.8.3",
+    "version": "v0.8.4",
     "type": "library",
     "support": {
         "issues": "https://github.com/cidinho/Solicitacao/issues",
@@ -9,7 +9,7 @@
     },
     "require": {
         "php": ">=7.1",
-        "entitiesphp/repository": "*"
+        "entitiesphp/framework": "*"
     },
     "license": "MIT",
     "authors": [
