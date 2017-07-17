@@ -2,19 +2,54 @@
 
 namespace Modelo\Solicitacao;
 
+use DateTime;
+use Doctrine\ORM\{
+    Mapping\Column,
+    Mapping\Entity,
+    Mapping\GeneratedValue,
+    Mapping\Id,
+    Version
+};
+use Symfony\Component\Console\Helper\Table;
+
+/**
+ * @Entity
+ * @Table(name="funcionarios")
+ */
 class Funcionario {
 
     /**
+     * Identificador do registro
+     * 
+     * @Id
+     * @GeneratedValue(strategy="AUTO")
+     * @Column(type="integer")
+     * @var int
+     */
+    protected $id;
+
+    /**
      * Nome
+     * @Column(length = 60, nullable = false)
      * @var string 
      */
     private $nome = '';
 
     /**
      * Matrícula
+     * @Column(length = 6, nullable = false, unique = true)
      * @var string 
      */
     private $matricula = '';
+
+    /**
+     * Data da última atualização do registro
+     * 
+     * @Column(type="datetime")
+     * @Version
+     * @var DateTime
+     */
+    protected $version;
 
     /**
      * Funcionário
@@ -63,6 +98,28 @@ class Funcionario {
     public function setMatricula(string $matricula): Funcionario {
         $this->matricula = $matricula;
         return $this;
+    }
+
+    public function getId() {
+        return $this->id;
+    }
+
+    public function getVersion(): DateTime {
+        return $this->version;
+    }
+
+    public function setId($id) {
+        $this->id = $id;
+        return $this;
+    }
+
+    public function setVersion(DateTime $version) {
+        $this->version = $version;
+        return $this;
+    }
+    
+    public function __toString() {
+        return nome + "(" + matricula + ")";
     }
 
 }
