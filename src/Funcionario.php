@@ -119,7 +119,7 @@ class Funcionario {
     }
     
     public function __toString() {
-        return nome + "(" + matricula + ")";
+        return $this->nome . "(" . $this->matricula . ")";
     }
 
 }
