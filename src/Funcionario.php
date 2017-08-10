@@ -13,6 +13,7 @@ use Doctrine\ORM\{
 use Symfony\Component\Console\Helper\Table;
 
 /**
+ * @EntityDescriptor(pluralDisplayName="Funcionários")
  * @Entity
  * @Table(name="funcionarios")
  */
